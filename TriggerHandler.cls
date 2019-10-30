@@ -4,7 +4,7 @@
  * @Author             : Sadham
  * @Group              : 
  * @Last Modified By   : Creation Admin
- * @Last Modified On   : 10/30/2019, 7:46:00 PM
+ * @Last Modified On   : 10/30/2019, 8:05:07 PM
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    10/30/2019   Sadham     Initial Version
@@ -27,6 +27,7 @@ public class TriggerHandler {
         public virtual void afterUpdate(Map<Id,SObject> mapOldSObjs, Map<Id,SObject> mapNewSObjs) { return; }
         public virtual void afterDelete(Map<Id,SObject> mapOldSObjs) { return; }
         public virtual void afterUnDelete(Map<Id,SObject> mapNewSObjs) { return; }
+        public virtual void gitTestmethod(Map<Id,SObject> mapNewSObjs) { return; }
     }
 
     /**
@@ -88,6 +89,9 @@ public class TriggerHandler {
                 sObjectHandler.afterDelete( Trigger.oldMap );
             } else if (Trigger.isUndelete) {
                 sObjectHandler.afterUnDelete( Trigger.newMap );
+            }
+            else if (Trigger.isUndelete) {
+                sObjectHandler.gitTestmethod( Trigger.newMap );
             }
         }
     }
